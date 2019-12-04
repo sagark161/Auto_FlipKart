@@ -10,7 +10,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class BrowserRepository {
 	
-	public WebDriver startAppliaction(WebDriver driver, String browserName, String appURL) {
+	public static WebDriver startAppliaction(WebDriver driver, String browserName, String appURL) {
 		switch(browserName){
 		case "chrome":
 			WebDriverManager.chromedriver().setup();
@@ -25,7 +25,7 @@ public class BrowserRepository {
 		}
 	driver.get(appURL);
 	driver.manage().window().maximize();
-	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	return driver;
 	}
 
