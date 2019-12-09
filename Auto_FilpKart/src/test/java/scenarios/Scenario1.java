@@ -18,5 +18,5 @@ public class Scenario1 extends BaseClass {
 		MobilesPage mobilesPage = PageFactory.initElements(driver, MobilesPage.class);
 		home.hoverAndClick();
 		Assert.assertEquals("Mi Mobiles", mobilesPage.getCategory());
-	}	
+	}
 }
