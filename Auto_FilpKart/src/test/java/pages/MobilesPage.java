@@ -9,6 +9,6 @@ public class MobilesPage extends BasePage{
 		super(driver);
 	}
 	
-	@FindBy(xpath="//h1[@class='_2yAnYN']") WebElement catTitle;
+	@FindBy(xpath="//h1[contains(text(),'Mobiles')]") WebElement catTitle;
 	
 }
