@@ -1,6 +1,10 @@
 package scenarios;
 
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 import org.testng.annotations.*;
+
+import pages.MobilesPage;
 
 public class Scenario1 extends BaseClass {
 		
@@ -8,15 +12,11 @@ public class Scenario1 extends BaseClass {
 	public void pageTitle(){
 		softAssert.assertTrue(home.pageTitle().equals("Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!"));
 		softAssert.assertAll();
-	}
-	@BeforeGroups("MobilePages")
-	public void mobilesPageInit(){
-		System.out.println("Before groups executed");
-	}
-	
-	@Test(priority=2,groups={"MobilePages"})
-	public void menuBarClick(){
+	}	
+	@Test(priority=2)
+	public void menubarClick(){
+		MobilesPage mobilesPage = PageFactory.initElements(driver, MobilesPage.class);
 		home.hoverAndClick();
-	}
-	
+		Assert.assertEquals("Mi Mobiles", mobilesPage.getCategory());
+	}	
 }

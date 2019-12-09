@@ -11,4 +11,9 @@ public class MobilesPage extends BasePage{
 	
 	@FindBy(xpath="//h1[contains(text(),'Mobiles')]") WebElement catTitle;
 	
+	public String getCategory(){
+		String cat_title = catTitle.getText();
+		cat_title = cat_title.trim();
+		return cat_title;
+	}
 }
