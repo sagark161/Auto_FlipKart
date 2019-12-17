@@ -11,17 +11,18 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.*;
 
-public class Scenario2 extends BaseClass{
+public class Scenario2 {  //extends BaseClass
 	@Test
 	public void testSearch(){
 		//home.searchProduct("shoes");		
 		try {
-			File f = new File("SearchQueries.xlsx");
+			ClassLoader classloader = getClass().getClassLoader();
+			File f = new File(classloader.getResource("SearchQueries.xlsx").getFile());
 			FileInputStream fis = new FileInputStream(f);
 			Workbook wb = new XSSFWorkbook(fis);
 			Sheet s = wb.getSheet("Sheet1");
-			Row r = s.getRow(3);
-			System.out.println(r.getCell(2).getStringCellValue());
+			Row r = s.getRow(2);
+			System.out.println(r.getCell(1).getStringCellValue());
 		} catch (Exception e) {
 			//System.out.println("Failed to read excel");
 			System.out.println(e.getMessage());;			
